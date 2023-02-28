@@ -1,5 +1,6 @@
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import *
+from food import *
 import time
 
 # TODO 1: CREATE OBJECT SNAKE
@@ -12,7 +13,9 @@ screen.bgcolor('black')
 screen.title('Snake game')
 screen.tracer(0)
 
+food = Food()
 snake = Snake()
+
 
 screen.listen()
 
@@ -23,9 +26,14 @@ screen.onkey(snake.right, 'Right')
 
 game_is_on = True
 while game_is_on:
-    screen.update()
-    time.sleep(0.1)
 
+    time.sleep(0.1)
     snake.move()
+    screen.update()
+
+    # Detect snake/food collision
+    if snake.squares[0].distance(food) < 15:
+        food.spawn()
+        snake.add_square()
 
 screen.exitonclick()

@@ -23,6 +23,18 @@ class Snake():
         square.shape('square')
         square.penup()
         self.squares.append(square)
+        x_ref, y_ref = self.define_position()
+        square.goto(self.squares[-1].xcor() + x_ref, self.squares[-1].ycor() + y_ref)
+
+    def define_position(self):
+        if self.squares[-1].heading() == 0:
+            return -square_size, 0
+        if self.squares[-1].heading() == 90:
+            return 0, -square_size
+        if self.squares[-1].heading() == 180:
+            return square_size, 0
+        if self.squares[-1].heading() == 270:
+            return 0, square_size
 
     def move(self):
         for i in range(len(self.squares) - 1, 0, -1):
