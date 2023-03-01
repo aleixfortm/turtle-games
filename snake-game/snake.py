@@ -3,9 +3,10 @@ from turtle import Turtle
 # TODO 1: ATTRIBUTES --> Square objects, square size
 
 square_size = 20
-INITIAL_SQUARES = 3
+INITIAL_SQUARES = 6
 
-class Snake():
+
+class Snake:
 
     def __init__(self):
         self.squares = []
@@ -56,5 +57,3 @@ class Snake():
     def right(self):
         if self.squares[0].heading() != 180:
             self.squares[0].seth(0)
-
-

@@ -1,6 +1,7 @@
 from turtle import Turtle
 import random
 
+
 class Food(Turtle):
 
     def __init__(self):
@@ -16,4 +17,3 @@ class Food(Turtle):
         x = random.randint(-280, 280)
         y = random.randint(-280, 280)
         self.setpos(x, y)
-
